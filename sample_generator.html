@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample generator</title>
+    <meta name="description" content="Creador de contenedores">
+    <meta property="og:title" content="Creador de contenedores para canvas" />
+    <meta property="og:url" content="https://e-maestrias.github.io/m-inn-edu/sample_generator.html" />
+    <meta property="og:description" content="Creador de contenedores">
+    <meta property="og:image" content="//cdn.example.com/uploads/images/webpage_300x200.png">
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="es_ES" />
+</head>
+
+<body>
+    <h1>herramienta para la generación de componentes</h1>
+    <p> Ejemplo </p>
+
+    <form>
+        <label for="comp_title">¿Cuál es el título de tu componente?</label>
+        <input class="i_title" type="text">
+        <br>
+        <label for="comp_body">¿Cuál es el contenido?</label>
+        <textarea class="i_content" name="comp_body" id="comp_body" cols="30" rows="10"></textarea>
+        <input class="btn" type="button" value="generar código">
+    </form>
+
+    <h1>Código generado</h1>
+    <textarea class="g_code" name="html_code" id="html_code" cols="30" rows="10">
+    </textarea>
+
+    <h1>Así se verá en canvas ... </h1>
+    <div class="preview"></div>
+
+    <script>
+        window.addEventListener('load', () => {
+            const btn = document.querySelector('.btn');
+            const title_input = document.querySelector('.i_title');
+            const content_input = document.querySelector('.i_content');
+            const output = document.querySelector('.g_code');
+            const preview = document.querySelector('.preview');
+            btn.addEventListener('click', () => {
+                let mainDiv = document.createElement('div');
+                mainDiv.setAttribute("style", "border: 1px solid #e6e6e6; border-left: 4px solid #2e3b45; background-color:#fdfdfd; padding: 20px 20px 20px 30px");
+                let mainTitle = document.createElement('h3');
+                let mainContent = document.createElement('p');
+                mainTitle.innerHTML = title_input.value;
+                mainContent.innerHTML = content_input.value;
+                mainDiv.appendChild(mainTitle);
+                mainDiv.appendChild(mainContent);
+                output.innerText = mainDiv.outerHTML;
+                preview.childNodes.forEach((e)=>{
+                    preview.removeChild(e);
+                });
+                preview.appendChild(mainDiv);
+            });
+        });
+    </script>
+</body>
+
+</html>
