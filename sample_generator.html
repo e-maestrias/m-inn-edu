@@ -25,12 +25,19 @@
     </textarea>
 
 
+    <div class="preview">
+
+
+    </div>
+
+
     <script>
         window.addEventListener('load', () => {
             const btn = document.querySelector('.btn');
             const title_input = document.querySelector('.i_title');
             const content_input = document.querySelector('.i_content');
             const output = document.querySelector('.g_code');
+            const preview = document.querySelector('.preview');
             btn.addEventListener('click', () => {
                 let mainDiv = document.createElement('div');
                 mainDiv.style = "border-left: 4px solid #ff7c1a; background-color:#F7F7F7; padding: 20px 20px 20px 30px;";
@@ -41,6 +48,10 @@
                 mainDiv.appendChild(mainTitle);
                 mainDiv.appendChild(mainContent);
                 output.innerText = mainDiv.outerHTML;
+                preview.childNodes.forEach((e)=>{
+                    preview.removeChild(e);
+                });
+                preview.appendChild(mainDiv);
             });
         });
     </script>
