@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample generator</title>
+    <meta name="description" content="Creador de contenedores">
+    <meta property="og:title" content="Creador de contenedores para canvas" />
+    <meta property="og:url" content="https://e-maestrias.github.io/m-inn-edu/sample_generator.html" />
+    <meta property="og:description" content="Creador de contenedores">
+    <meta property="og:image" content="//cdn.example.com/uploads/images/webpage_300x200.png">
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="es_ES" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+    </ul>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Library</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Data</li>
+        </ol>
+    </nav>
+
+    <div class="container">
+        <h1 class="h1">Componente Bandage</h1>
+        <p> Este componente es usado para generar un mensaje así:</p>
+        <!--BANDAGE-->
+        <div class="content-box pad-box-mini border border-trbl border-round"
+            style="background: #ebf7f9; border: 1px solid #16A7C6; color: #17a7c6;">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><i class="icon-pdf"></i> Adiós a los mitos de la innovación / 6 min <a
+                                href="https://www.academia.edu/35347073/ADIOS_A_LOS_MITOS_D_ELA_INNOVACI%C3%93N.pdf">Ir
+                                al libro →</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--FIN BANDAGE-->
+        <p></p>
+        <div class="row">
+            <div class="col-lg col-md">
+                <form>
+                    <label for="comp_title" class="h5">¿Cuál es el mensaje de tu componente?</label><br>
+                    <input class="i_title form-control" type="text" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">¿Cómo quieres que lo vean tus
+                        estudiantes?</small>
+                    <br>
+                    <label for="comp_body" class="h5">¿Cuál es texto del enlace?</label><br>
+                    <input class="i_content form-control" type="text" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">¿A dónde me lleva este enlace?</small>
+                    <br>
+                    <input id="btn" class="btn btn-primary" type="button" value="generar código">
+                </form>
+            </div>
+        </div>
+        <p></p>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Código generado</h5>
+                <p class="card-text">Copie el código a continuación y péguelo en su canvas (en modo editor html)</p>
+                <textarea class="g_code i_content form-control" name="html_code" id="html_code" cols="30"
+                    rows="10"></textarea>
+                <p></p>
+                <h5 class="card-title">Previsualización</h5>
+                <div class="preview"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+/*
+<!--BANDAGE-->
+        <div class="content-box pad-box-mini border border-trbl border-round"
+            style="background: #ebf7f9; border: 1px solid #16A7C6; color: #17a7c6;">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><i class="icon-pdf"></i> Adiós a los mitos de la innovación / 6 min <a
+                                href="https://www.academia.edu/35347073/ADIOS_A_LOS_MITOS_D_ELA_INNOVACI%C3%93N.pdf">Ir
+                                al libro →</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--FIN BANDAGE-->
+*/
+        window.addEventListener('load', () => {
+            const btn = document.querySelector('#btn');
+            const title_input = document.querySelector('.i_title');
+            const content_input = document.querySelector('.i_content');
+            const output = document.querySelector('.g_code');
+            const preview = document.querySelector('.preview');
+            btn.addEventListener('click', () => {
+                let mainDiv = document.createElement('div');
+                let mainTable = document.createElement('table');
+                let mainTBody= document.createElement('tbody');
+                let mainTr= document.createElement('tr');
+                let mainTd= document.createElement('td');
+                let mainI= document.createElement('i');
+                let maina= document.createElement('a');
+
+
+                mainDiv.classList.add("content-box","pad-box-mini","border","border-trbl","border-round");
+                mainDiv.setAttribute("style",
+                    "background: #ebf7f9; border: 1px solid #16A7C6; color: #17a7c6;"
+                );
+                mainI.classList.add("icon-pdf");
+
+
+                "<table><tbody><tr><td><i class=\"icon-pdf\"></i>"++"→"++"</td></tr></tbody></table>";
+
+                
+
+
+                let mainTitle = document.createElement('h3');
+                let mainContent = document.createElement('p');
+                mainTitle.innerHTML = title_input.value;
+                mainContent.innerHTML = content_input.value;
+                mainDiv.appendChild(mainTitle);
+                mainDiv.appendChild(mainContent);
+                output.innerText = mainDiv.outerHTML;
+                preview.childNodes.forEach((e) => {
+                    preview.removeChild(e);
+                });
+                preview.appendChild(mainDiv);
+            });
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>
